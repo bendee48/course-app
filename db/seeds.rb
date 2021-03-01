@@ -10,4 +10,8 @@ Course.destroy_all
 30.times do
   Course.create!(title: Faker::Educator.course_name, description: Faker::Lorem.paragraphs.join) 
 end
-puts 'Seeded bruh'
+
+User.destroy_all
+User.create!(email: 'ben@email.com', password: 'password')
+
+puts "#{Course.count} courses created. #{User.count} user#{'s' if User.count > 1} created"
