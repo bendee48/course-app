@@ -1,0 +1,4 @@
+- flash.each do |type, msg|
+  - color = type == 'notice' ? 'success' : 'danger'
+  %div{:class => "alert alert-#{color} text-center", :role => "alert"}
+    = msg
