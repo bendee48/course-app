@@ -5,13 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Course.destroy_all
+User.destroy_all
+user = User.create!(email: 'ben@email.com', password: 'password')
 
+Course.destroy_all
 30.times do
-  Course.create!(title: Faker::Educator.course_name, description: Faker::Lorem.paragraphs.join) 
+  Course.create!(title: Faker::Educator.course_name, description: Faker::Lorem.paragraphs.join, user_id: user.id) 
 end
 
-User.destroy_all
-User.create!(email: 'ben@email.com', password: 'password')
-
-puts "#{Course.count} courses created. #{User.count} user#{'s' if User.count > 1} created"
+puts "#{User.count} user#{'s' if User.count > 1} created. #{Course.count} courses created."
