@@ -12,8 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap/dist/js/bootstrap'
-import 'bootstrap/dist/css/bootstrap'
+import "bootstrap"
 
 require("stylesheets/application.scss")
 import "@fortawesome/fontawesome-free/css/all"
