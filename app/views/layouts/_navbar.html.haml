@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-lg.navbar-light{:style => "background-color: #c999ad;"}
+%nav.navbar.navbar-expand-lg.navbar-light{:style => "background-color: #6c90ad;"}
   .container-fluid
     = link_to root_path, class: 'navbar-brand font-weight-bold font-italic' do
       %h2 BareCourses
@@ -16,9 +16,9 @@
               .fas.fa-book-open
               Courses
         %ul.navbar-nav.ml-auto
-          %form.d-flex
-            %input.form-control.me-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-            %button.btn.btn-outline-dark{:type => "submit"} Search
+          = form_with url: courses_path, class: 'form d-flex', method: :get do |form|
+            = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
+            = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'
           %li.nav-item.dropdown
             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               = current_user.email
