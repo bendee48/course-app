@@ -1,7 +1,47 @@
-%h1 StaticPages#landing_page
-%p Find me in app/views/static_pages/landing_page.html.erb
-= link_to 'Privacy Policy', privacy_policy_path
+.jumbotron
+  %h2 What do you want to learn today?
+  = form_with url: courses_path, class: 'form d-flex mt-4', method: :get do |form|
+    = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
+    = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'
 
-= link_to courses_path, class: 'btn btn-warning' do
-  .fas.fa-book-open
-  Courses
+.card-group.mb-4
+  .card
+    .card-body.text-center
+      %h1.card-title.fas.fa-graduation-cap
+      %p.card-text
+        = Course.count
+        Online Courses
+      %p.card-text
+        Find your perfect course and start learning now!
+  .card
+    .card-body.text-center
+      %h1.card-title.fas.fa-user-graduate
+      %p.card-text
+        = Course.distinct.count 
+        teachers ready to teach. Find the perfect instructor for you.
+  .card
+    .card-body.text-center
+      %h1.card-title.fas.fa-user-friends
+      %p.card-text
+        = User.count
+        active users. Join them today and learn a new skill.
+  .card
+    .card-body.text-center
+      %h1.card-title.far.fa-thumbs-up
+      %p.card-text
+        Get life-time access.
+        Learn when you want, in your own time.
+
+
+%hr
+%h2.mb-4 Popular Courses
+.card-columns
+  = render partial: 'courses/course', collection: @courses
+%hr
+%h2.mb-4 Top Rated Courses
+.card-columns
+  = render partial: 'courses/course', collection: @courses
+%hr
+%h2.mb-4 Most recent courses
+.card-columns
+  = render partial: 'courses/course', collection: @latest_courses

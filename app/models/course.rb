@@ -4,6 +4,8 @@ class Course < ApplicationRecord
   has_rich_text :description
   belongs_to :user
 
+  scope :three, -> { limit(3) }
+
   # Shows course object as title
   def to_s
     title
