@@ -1,5 +1,8 @@
 .jumbotron
-  %h2 What do you want to learn today?
+  %h2
+    .fas.fa-chalkboard
+    \| 
+    What do you want to learn today?
   = form_with url: courses_path, class: 'form d-flex mt-4', method: :get do |form|
     = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
     = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'

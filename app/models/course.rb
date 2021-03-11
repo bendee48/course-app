@@ -6,6 +6,9 @@ class Course < ApplicationRecord
 
   scope :three, -> { limit(3) }
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   # Shows course object as title
   def to_s
     title
