@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 user = User.create!(email: 'ben@email.com', password: 'password')
+user = User.create!(email: 'emma@email.com', password: 'password')
 
 Course.destroy_all
 30.times do
