@@ -1,0 +1,7 @@
+.card
+  .card-header
+    = user_card
+  .card-body
+    Signed up
+    = time_ago_in_words(user_card.created_at)
+    ago

@@ -19,6 +19,10 @@
             = link_to new_course_path, class: 'nav-link' do
               .fas.fa-plus
               New Course
+          %li.nav-item{class: "#{'active font-weight-bold' if current_page?(users_path)}"}
+            = link_to users_path, class: 'nav-link' do
+              .fas.fa-users
+              Users
         %ul.navbar-nav.ml-auto
           = form_with url: courses_path, class: 'form d-flex', method: :get do |form|
             = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
