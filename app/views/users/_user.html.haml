@@ -1,11 +1,19 @@
 .card
   .card-header
     = user
-  .card-footer
+  .card-body
     Signed up:
-    = time_ago_in_words(user.created_at)
-    ago
-  .card-footer
+    %i{class: 'text-primary'}
+      = time_ago_in_words(user.created_at)
+      ago
+    .row
     Last signed in:
-    = time_ago_in_words(user.last_sign_in_at || user.created_at)
-    ago
+    %i{class: 'text-primary'}
+      = time_ago_in_words(user.last_sign_in_at || user.created_at)
+      ago
+  .card-footer
+    Confirmed?
+    - if user.confirmed?
+      .badge.badge-success yes
+    - else
+      .badge.badge-danger no
