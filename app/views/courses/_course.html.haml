@@ -2,7 +2,20 @@
   .card-header
     .fas.fa-graduation-cap
     = link_to course.title, course
-  .card-body= course.description
+  .card-body
+    - if current_page?(course_path(course))
+      = course.description
+    - elsif current_page?(courses_path)
+      = course.short_description
+  .card-footer
+    .fas.fa-level-up-alt
+    = course.level
+    \|
+    .fas.fa-globe-americas
+    = course.language
+    \|
+    .fas.fa-wallet
+    = number_to_currency(course.price, unit: '£')
   .card-footer
     .far.fa-clock
     = course.created_at.strftime('%d %b %Y')

@@ -10,11 +10,25 @@ user1 = User.create!(email: 'ben@email.com', password: 'password')
 user1.confirm
 user2 = User.create!(email: 'emma@email.com', password: 'password')
 user2.confirm
+user3 = User.create!(email: 'rob@email.com', password: 'password')
+
 
 Course.destroy_all
 15.times do
-  Course.create!(title: Faker::Educator.course_name, description: Faker::Lorem.paragraphs.join, user_id: user1.id)
-  Course.create!(title: Faker::Educator.course_name, description: Faker::Lorem.paragraphs.join, user_id: user2.id)
+  Course.create!(title: Faker::Educator.course_name, 
+                 description: Faker::Lorem.paragraphs.join,
+                 short_description: Faker::Lorem.sentences(number: 2).join,
+                 language: Faker::Nation.language,
+                 level: 'Beginner',
+                 price: Faker::Number.decimal(l_digits: 2),
+                 user_id: user1.id)
+  Course.create!(title: Faker::Educator.course_name,
+                 description: Faker::Lorem.paragraphs.join,
+                 short_description: Faker::Lorem.sentences(number: 2).join,
+                 language: Faker::Nation.language,
+                 level: 'Intermediate',
+                 price: Faker::Number.decimal(l_digits: 2),
+                 user_id: user2.id)
 end
 
 puts "#{User.count} user#{'s' if User.count > 1} created. #{Course.count} courses created."
