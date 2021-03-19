@@ -2,3 +2,25 @@
 
 .card-columns
   = render partial: 'users/user', collection: @users
+
+= search_form_for @q do |f|
+  .form-inputs
+    = f.search_field :email_cont, placeholder: 'email'
+    = f.submit 'Submit', class: 'btn btn-outline-info'
+=link_to users_path, class: 'btn btn-sm btn-info m-1' do 
+  .fas.fa-redo-alt
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th{:scope => "col"}
+        =sort_link(@q, :email, 'User')
+      %th{:scope => "col"}
+        =sort_link(@q, :sign_in_count, 'No. of Sign Ins')
+      %th{:scope => "col"} Last Sign In
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td=user
+        %td=user.sign_in_count
+        %td=user.last_sign_in_at
