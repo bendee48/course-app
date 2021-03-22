@@ -4,9 +4,11 @@
   = render partial: 'users/user', collection: @users
 
 = search_form_for @q do |f|
-  .form-inputs
-    = f.search_field :email_cont, placeholder: 'email'
-    = f.submit 'Submit', class: 'btn btn-outline-info'
+  .row.g-1
+    .col-auto
+      = f.search_field :email_cont, placeholder: 'email', class: 'form-control'
+    .col-auto
+      = f.submit 'Submit', class: 'btn btn-outline-info'
 =link_to users_path, class: 'btn btn-sm btn-info m-1' do 
   .fas.fa-redo-alt
 

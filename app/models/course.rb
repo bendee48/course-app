@@ -14,4 +14,10 @@ class Course < ApplicationRecord
   def to_s
     title
   end
+
+  LEVELS = %w[Beginner Intermediate Advanced].freeze
+
+  def self.levels
+    LEVELS
+  end
 end

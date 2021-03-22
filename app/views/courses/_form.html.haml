@@ -10,7 +10,7 @@
     = f.error :description
     = f.input :short_description
     = f.input :language, collection: ['English', 'French', 'German', 'Polish']
-    = f.input :level, collection: ['Beginner', 'Intermediate', 'Advanced']
+    = f.input :level, collection: Course.levels
     = f.input :price
 
   .form-actions
