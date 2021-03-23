@@ -3,9 +3,9 @@
     .fas.fa-chalkboard
     \| 
     What do you want to learn today?
-  = form_with url: courses_path, class: 'form d-flex mt-4', method: :get do |form|
-    = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
-    = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'
+  = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex mt-4' do |f|
+    = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Search', type: 'search', 'aria-label' => 'Search'
+    = f.submit 'Submit', class: 'btn btn-sm btn-outline-dark', type: 'submit'
 
 .card-group.mb-4
   .card

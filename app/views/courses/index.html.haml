@@ -4,7 +4,7 @@
 
 .row
   .col-2
-    = search_form_for @q do |f|
+    = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| 
       .input-group-sm
         = f.search_field :title_or_short_description_cont, placeholder: 'course', class: 'form-control mb-1'
         = f.search_field :language_cont, placeholder: 'language', class: 'form-control mb-1'

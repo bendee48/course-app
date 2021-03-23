@@ -23,10 +23,12 @@
             = link_to users_path, class: 'nav-link' do
               .fas.fa-users
               Users
+              
         %ul.navbar-nav.ml-auto
-          = form_with url: courses_path, class: 'form d-flex', method: :get do |form|
-            = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
-            = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'
+          = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex' do |f|
+            .input-group
+              = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Search', type: 'search', 'aria-label' => 'Search'
+              = f.submit 'Submit', class: 'btn btn-sm btn-outline-dark', type: 'submit'
           %li.nav-item.dropdown
             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               = current_user.email
