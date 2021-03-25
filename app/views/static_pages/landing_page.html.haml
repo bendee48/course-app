@@ -3,10 +3,10 @@
     .fas.fa-chalkboard
     \| 
     What do you want to learn today?
-  = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex mt-4' do |f|
-    = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Search', type: 'search', 'aria-label' => 'Search'
-    = f.button type: 'submit', class: 'btn btn-dark' do
-      .fas.fa-search
+  -# = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex mt-4' do |f|
+  -#   = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Search', type: 'search', 'aria-label' => 'Search'
+  -#   = f.button type: 'submit', class: 'btn btn-dark' do
+  -#     .fas.fa-search
 
 .card-group.mb-4
   .card
