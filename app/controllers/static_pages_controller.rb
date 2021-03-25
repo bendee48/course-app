@@ -6,6 +6,10 @@ class StaticPagesController < ApplicationController
     @courses = Course.three
   end
 
+  def activity
+    @activities = PublicActivity::Activity.all
+  end
+
   def privacy_policy
   end
 end

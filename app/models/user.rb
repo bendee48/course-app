@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :courses
 
   def to_s
-    email
+    email.match(/\A\w+/).to_s
   end
 end

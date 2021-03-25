@@ -1,0 +1,9 @@
+%h1 Activity
+
+%ul
+  - @activities.each do |a|
+    %li
+      = a.owner
+      = 'did something like'
+      = a.key
+      = link_to a.trackable, a.trackable
