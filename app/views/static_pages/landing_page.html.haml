@@ -1,12 +1,16 @@
 .jumbotron
-  %h2
+  %h2.text-center
     .fas.fa-chalkboard
     \| 
     What do you want to learn today?
-  -# = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex mt-4' do |f|
-  -#   = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Search', type: 'search', 'aria-label' => 'Search'
-  -#   = f.button type: 'submit', class: 'btn btn-dark' do
-  -#     .fas.fa-search
+    -# = form_with url: courses_path, class: 'form d-flex mt-4', method: :get do |form|
+    -#   = form.text_field :search, class: 'form-control me-2', placeholder: "Search", type: "search", 'aria-label' => 'Search'
+    -#   = form.submit 'Search', class: 'button btn btn-outline-dark', type: 'submit'
+    - if user_signed_in?
+      = search_form_for @ransack_courses, as: :courses_search, url: courses_path, class: 'form d-flex mt-4' do |f|
+        = f.search_field :title_or_short_description_cont, class: 'form-control', placeholder: 'Find a course', type: 'search', 'aria-label' => 'Search'
+        = f.button type: 'submit', class: 'btn btn-dark' do
+          .fas.fa-search
 
 .card-group.mb-4
   .card

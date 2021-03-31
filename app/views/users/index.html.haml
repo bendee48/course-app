@@ -1,4 +1,7 @@
-%h1 Users#index
+%h3.text-center.mt-4.mb-4
+  Users
+  %span.badge.bg-secondary
+    = User.count
 
 .card-columns
   = render partial: 'users/user', collection: @users
@@ -8,7 +11,7 @@
     .col-auto
       = f.search_field :email_cont, placeholder: 'email', class: 'form-control'
     .col-auto
-      = f.submit 'Submit', class: 'btn btn-outline-info'
+      = f.submit 'Search', class: 'btn btn-outline-info'
 =link_to users_path, class: 'btn btn-sm btn-info m-1' do 
   .fas.fa-redo-alt
 

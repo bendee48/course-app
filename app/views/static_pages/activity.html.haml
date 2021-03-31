@@ -1,8 +1,11 @@
-%h1 Activity
+%h3.text-center.mt-4.mb-4
+  Activity
+  %span.badge.bg-secondary
+    = @activities.count
 
-%ul
+%ul.list-group
   - @activities.each do |a|
-    %li
+    %li.list-group-item
       = a.owner
       = 'did something like'
       = a.key
