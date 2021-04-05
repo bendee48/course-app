@@ -33,7 +33,8 @@ gem 'faker', '~> 2.16'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2' # pretty urls
 gem 'ransack', '~> 2.4', '>= 2.4.2', github: 'activerecord-hackery/ransack' #site searching/ queries
-gem 'public_activity', '~> 1.6', '>= 1.6.4'
+gem 'public_activity', '~> 1.6', '>= 1.6.4' # For displaying user activity
+gem 'rolify', '~> 5.3' # For user roles
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

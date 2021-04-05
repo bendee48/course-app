@@ -8,6 +8,7 @@
 User.destroy_all
 user1 = User.create!(email: 'ben@email.com', password: 'password')
 user1.confirm
+user1.add_role(:admin)
 user2 = User.create!(email: 'emma@email.com', password: 'password')
 user2.confirm
 user3 = User.create!(email: 'rob@email.com', password: 'password')
