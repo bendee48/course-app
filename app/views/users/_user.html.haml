@@ -20,3 +20,5 @@
   .card-footer
     - user.roles.each do |role|
       .badge.badge-info= role.name
+  .card-footer
+    = link_to 'edit', edit_user_path(user), class: 'btn btn-sm btn-outline-secondary'
